@@ -65,7 +65,7 @@
                 <div class="banner-text">
                     <div class="slider-info mt-4">
                         <h3>Lauwba Academy Club</h3>
-                        <p>Belajar dan tumuh bersama kami di <br>Lauwba Academy</p>
+                        <p>Belajar dan tumbuh bersama kami di <br>Lauwba Academy</p>
                         <br>
                         <br>
                         <br>
