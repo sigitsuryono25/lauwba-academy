@@ -51,7 +51,7 @@
                 <div class="banner-text">
                     <div class="slider-info mt-4">
                         <h3>Tantang Diri Anda</h3>
-                        <p>Pelajari semua tentang IT bersama kami di Lauwba Academy</p>
+                        <p>Pelajari semua tentang IT bersama kami di<br>Lauwba Academy</p>
                         <br>
                         <br>
                         <br>
@@ -65,7 +65,7 @@
                 <div class="banner-text">
                     <div class="slider-info mt-4">
                         <h3>Lauwba Academy Club</h3>
-                        <p>Belajar dan tumuh bersama kami di Lauwba Academy</p>
+                        <p>Belajar dan tumuh bersama kami di <br>Lauwba Academy</p>
                         <br>
                         <br>
                         <br>
@@ -79,7 +79,7 @@
                 <div class="banner-text">
                     <div class="slider-info mt-4">
                         <h3>Trainer Handal</h3>
-                        <p>Kelas akan ditangani oleh trainer-trainer handal yang sudah berpengalaman</p>
+                        <p>Kelas akan ditangani oleh trainer-trainer<br>handal yang sudah berpengalaman</p>
                         <br>
                         <br>
                         <br>
