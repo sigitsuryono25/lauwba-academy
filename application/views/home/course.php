@@ -103,14 +103,14 @@
     <div class="container">
         <h4 class="mb-2">Kategori Yang Tersedia</h4>
         <div class="row">
-            <div class="col-md-3 mt-3">
+            <div class="col-md-3 mt-3 col-sm-12">
                 <div class="card">
                     <div class="card-body   shadow rounded ">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 text-center">
                                 <i class="fa fa-3x fa-android text-success"></i>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 text-center">
                                 <p class="mt-2">Android</p>
                             </div>
                         </div>
@@ -122,10 +122,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 text-center">
                                 <i class="fa fa-3x fa-globe" style="color: orange"></i>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 text-center">
                                 <p class="mt-2">Website</p>
                             </div>
                         </div>
@@ -136,10 +136,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 text-center">
                                  <i class="fa fa-3x fa-laptop text-info"></i>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 text-center text-center">
                                 <p class="mt-2">Teknisi Komputer</p>
                             </div>
                         </div>
@@ -151,10 +151,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 text-center">
                                  <i class="fa fa-3x fa-apple text-dark"></i>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 text-center">
                                 <p class="mt-2">iOS</p>
                             </div>
                         </div>
@@ -165,11 +165,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 text-center">
 <!--                                <img class="img-fluid" src="https://i.udemycdn.com/browse_components/value-props-unit/video_courses.svg">-->
                                 <i class="fa fa-3x fa-paypal text-primary"></i>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 text-center">
                                 <p class="mt-2">Digital Marketing</p>
                             </div>
                         </div>
@@ -180,10 +180,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 text-center">
                                 <i class="fa fa-3x fa-google text-danger"></i>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 text-center">
                                 <p class="mt-2">SEO</p>
                             </div>
                         </div>
