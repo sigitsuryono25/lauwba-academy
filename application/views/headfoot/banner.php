@@ -55,7 +55,6 @@
                         <br>
                         <br>
                         <br>
-                        <br>
                     </div>
                 </div>
             </div>
@@ -69,7 +68,6 @@
                         <br>
                         <br>
                         <br>
-                        <br>
                     </div>
                 </div>
             </div>
@@ -80,7 +78,6 @@
                     <div class="slider-info mt-4">
                         <h3>Trainer Handal</h3>
                         <p>Kelas akan ditangani oleh trainer-trainer<br>handal yang sudah berpengalaman</p>
-                        <br>
                         <br>
                         <br>
                         <br>
