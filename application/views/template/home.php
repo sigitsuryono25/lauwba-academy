@@ -30,6 +30,8 @@
         }
     </style>
     <body>
+        <!--NAVIGATION-->
+        <?php echo $navigation?>
         <!--BANNER-->
         <?php echo $banner ?>
 

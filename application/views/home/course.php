@@ -36,10 +36,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-2 mt-2">
+                            <div class="col-md-2 mt-2 text-center">
                                 <img class="img-fluid" src="https://i.udemycdn.com/browse_components/value-props-unit/go_own_pace.svg">
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 ">
                                 <h5>Belajar sesuai kecepatan Anda</h5><br/>
                             </div>
                             <div class="col-md-10 offset-2">
@@ -54,7 +54,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-2 mt-2">
+                            <div class="col-md-2 mt-2 text-center">
                                 <img class="img-fluid" src="https://i.udemycdn.com/browse_components/value-props-unit/learn_from_experts.svg">
                             </div>
                             <div class="col-md-10">
@@ -72,7 +72,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-2 mt-2">
+                            <div class="col-md-2 mt-2 text-center">
                                 <img class="img-fluid" src="https://i.udemycdn.com/browse_components/value-props-unit/video_courses.svg">
                             </div>
                             <div class="col-md-10">
@@ -137,7 +137,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 text-center">
-                                 <i class="fa fa-3x fa-laptop text-info"></i>
+                                <i class="fa fa-3x fa-laptop text-info"></i>
                             </div>
                             <div class="col-md-9 text-center text-center">
                                 <p class="mt-2">Teknisi Komputer</p>
@@ -152,7 +152,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 text-center">
-                                 <i class="fa fa-3x fa-apple text-dark"></i>
+                                <i class="fa fa-3x fa-apple text-dark"></i>
                             </div>
                             <div class="col-md-9 text-center">
                                 <p class="mt-2">iOS</p>
