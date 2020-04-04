@@ -13,10 +13,48 @@
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />        
         <link href="<?php echo base_url('assets/') ?>js/datatables/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
+        <script src="<?php echo base_url('assets/js/jquery/') ?>jquery-3.4.1.min.js"></script>
         <script data-search-pseudo-elements defer src="<?php echo base_url('assets/js/') ?>font-awesome/5.11.2/js/all.min.js"></script>
         <script src="<?php echo base_url('assets/js/feather-icons/4.24.1/') ?>feather.min.js"></script>
     </head>
     <style>
+        .lds-facebook {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-facebook div {
+            display: inline-block;
+            position: absolute;
+            left: 8px;
+            width: 16px;
+            background: #fff;
+            animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+        }
+        .lds-facebook div:nth-child(1) {
+            left: 8px;
+            animation-delay: -0.24s;
+        }
+        .lds-facebook div:nth-child(2) {
+            left: 32px;
+            animation-delay: -0.12s;
+        }
+        .lds-facebook div:nth-child(3) {
+            left: 56px;
+            animation-delay: 0;
+        }
+        @keyframes lds-facebook {
+            0% {
+                top: 8px;
+                height: 64px;
+            }
+            50%, 100% {
+                top: 24px;
+                height: 32px;
+            }
+        }
+
         .float{
             position:fixed;
             width:60px;
@@ -42,18 +80,21 @@
             <footer class="footer mt-auto footer-light">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6 small">Copyright &#xA9; Your Website 2020</div>
-                        <div class="col-md-6 text-md-right small">
-                            <a href="#!">Privacy Policy</a>
-                            &#xB7;
-                            <a href="#!">Terms &amp; Conditions</a>
-                        </div>
+                        <div class="col-md-6 small">Copyright &copy; Lauwba Academy <?php echo date('Y') ?></div>
                     </div>
                 </div>
             </footer>
         </div>
     </div>
-    <script src="<?php echo base_url('assets/js/jquery/') ?>jquery-3.4.1.min.js"></script>
+    <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-transparent border-0  ">
+                <div class="modal-body align-self-center">
+                    <div class="lds-facebook"><div></div><div></div><div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="<?php echo base_url('assets/js/bootstrap/') ?>bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url('assets/') ?>js/scripts.js"></script>
     <script src="<?php echo base_url('assets/') ?>js/sb-customizer.js"></script>
@@ -67,6 +108,16 @@
             tabsize: 2,
             height: 250
         });
+        function showPopup() {
+            // $("#popupimage").modal('show');
+            $('#progressModal').modal({
+                backdrop: 'static'
+            });
+        }
+        function hidePopup() {
+            // $("#popupimage").modal('show');
+            $('#progressModal').modal('hide');
+        }
     </script>
 </body>
 

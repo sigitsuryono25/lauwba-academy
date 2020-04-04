@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/mnt/sda5/webproject/LauwbaAcademy/application/views/headfoot/banner.php</file>
-            <file>file:/mnt/sda5/webproject/LauwbaAcademy/application/config/database.php</file>
-            <file>file:/mnt/sda5/webproject/LauwbaAcademy/application/controllers/Welcome.php</file>
-            <file>file:/mnt/sda5/webproject/LauwbaAcademy/assets/css/aasana.css</file>
-            <file>file:/mnt/sda5/webproject/LauwbaAcademy/application/views/template/home.php</file>
-            <file>file:/mnt/sda5/webproject/LauwbaAcademy/application/views/home/course.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/views/login.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/views/navigation/navigation.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/models/Course_mdl.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/controllers/Course.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/config/database.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/controllers/Welcome.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/views/template.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/views/dashboard/dashboard.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/controllers/Login.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/config/routes.php</file>
+            <file>file:/mnt/sda5/webproject/LauwbaAcademy/hacked-usa/application/views/course/summary-course.php</file>
         </group>
     </open-files>
 </project-private>

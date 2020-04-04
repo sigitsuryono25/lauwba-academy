@@ -3,23 +3,26 @@
     <form class="form-inline mr-auto d-none d-lg-block"><input class="form-control form-control-solid mr-sm-2" type="search" placeholder="Search" aria-label="Search" /></form>
     <ul class="navbar-nav align-items-center ml-auto">
         <li class="nav-item dropdown no-caret mr-3 dropdown-user">
-            <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"/></a>
+            <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="img-fluid" src="<?php echo!empty($this->session->userdata('foto')) ? $this->session->userdata('foto') : "https://source.unsplash.com/QAB-WJcbgJk/60x60" ?>"/></a>
             <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
                 <h6 class="dropdown-header d-flex align-items-center">
-                    <img class="dropdown-user-img" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+                    <img class="dropdown-user-img" src="<?php echo!empty($this->session->userdata('foto')) ? $this->session->userdata('foto') : "https://source.unsplash.com/QAB-WJcbgJk/60x60" ?>" />
                     <div class="dropdown-user-details">
-                        <div class="dropdown-user-details-name">Valerie Luna</div>
-                        <div class="dropdown-user-details-email">vluna@aol.com</div>
+                        <div class="dropdown-user-details-name"><?php echo $this->session->userdata('nama') ?></div>
+                        <div class="dropdown-user-details-email"><?php echo $this->session->userdata('username') ?></div>
                     </div>
                 </h6>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#!"
-                   ><div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                    Account</a
-                ><a class="dropdown-item" href="#!"
-                    ><div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
-                    Logout</a
-                >
+                <!--                <a class="dropdown-item" href="#!"
+                                   ><div class="dropdown-item-icon"><i data-feather="settings"></i></div>
+                                    Account</a-->
+                <a class="dropdown-item" href="<?php echo site_url('logout') ?>">
+                    <div class="dropdown-item-icon">
+                        <i data-feather="log-out"></i>
+                    </div>
+                    Logout
+                </a>
             </div>
         </li>
     </ul>
@@ -71,7 +74,7 @@
             <div class="sidenav-footer">
                 <div class="sidenav-footer-content">
                     <div class="sidenav-footer-subtitle">Logged in as:</div>
-                    <div class="sidenav-footer-title">Valerie Luna</div>
+                    <div class="sidenav-footer-title"><?php echo $this->session->userdata('nama') ?></div>
                 </div>
             </div>
         </nav>

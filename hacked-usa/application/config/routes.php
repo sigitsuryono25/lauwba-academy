@@ -53,7 +53,12 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//dashboard
 $route['main'] = 'welcome/index';
+
+//login
+$route['login'] = 'login/index';
+$route['logout'] = 'login/logout';
 
 //course
 $route['course-summary'] = 'course/course_summary';
