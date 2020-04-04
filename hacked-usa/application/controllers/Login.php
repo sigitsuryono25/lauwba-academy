@@ -20,9 +20,6 @@ class Login extends CI_Controller {
     }
 
     function login_proc() {
-        if (!$_POST) {
-            return "No data send";
-        } else {
             $username = $this->input->post('username', true);
             $passwrd = $this->input->post('password', true);
 
@@ -39,7 +36,6 @@ class Login extends CI_Controller {
             } else {
                 echo json_encode(['message' => 'Tidak ada data']);
             }
-        }
     }
     
     function logout(){
