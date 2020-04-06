@@ -18,12 +18,13 @@ class Course_mdl extends CI_Model {
         return $this->db->query("SELECT * FROM lauwbaco_latest_lauwba.tutor WHERE id_tutor NOT IN('19') ORDER BY id_tutor DESC");
     }
 
-    function getLatestCourse() {
+    function getLatestCourse($limit = null) {
         $username = $this->session->userdata('username');
         return $this->db->query("SELECT * FROM tb_course LEFT JOIN lauwbaco_latest_lauwba.tutor on tb_course.trainer=tutor.id_tutor "
-                        . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.added_by IN ('$username') ORDER BY tb_course.created_on DESC LIMIT 6");
+                        . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.added_by IN ('$username') ORDER BY tb_course.created_on DESC $limit");
     }
-
+    
+    
     function getTraining() {
         return $this->db->query("SELECT * FROM lauwbaco_latest_lauwba.jenis ");
     }
@@ -32,22 +33,8 @@ class Course_mdl extends CI_Model {
         return $this->db->query("SELECT * FROM tb_course LEFT JOIN lauwbaco_latest_lauwba.tutor on tb_course.trainer=tutor.id_tutor "
                         . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.added_by IN ('$userid')");
     }
-
-    function insertData($table, $data) {
-        $this->db->insert($table, $data);
-        return $this->db->affected_rows();
+    
+    function getCourseById($idCourse){
+        return $this->db->query("SELECT * FROM tb_course WHERE id_course IN ('$idCourse')");
     }
-
-    function updateData($table, $data, $where) {
-        $this->db->where($where);
-        $this->db->update($table, $data);
-        return $this->db->affected_rows();
-    }
-
-    function deleteData($table, $where) {
-        $this->db->where($where);
-        $this->db->delete($table);
-        return $this->db->affected_rows();
-    }
-
 }

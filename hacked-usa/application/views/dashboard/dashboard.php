@@ -1,6 +1,6 @@
 <div class="container-fluid mt-n5">
     <div class="row mb-4">
-        <div class="col-md-6 mb-3" title="<?php echo site_url('add-new-course')?>" onclick='return location.replace("<?php echo site_url('add-new-course')?>")' style="cursor: pointer">
+        <div class="col-md-6 mb-3" title="<?php echo site_url('add-new-course') ?>" onclick='return location.replace("<?php echo site_url('add-new-course') ?>")' style="cursor: pointer">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -39,10 +39,10 @@
                         <?php foreach ($course->result() as $co) { ?>
                             <div class="col-md-3 mb-3">
                                 <div class="card">
-                                    <img class="card-img-top" style="width: 100%; height: 250px;" src="<?php echo base_url('assets/course/' . $co->course_cover) ?>" alt="<?php echo $co->nama_course ?>">
+                                    <img class="card-img-top" src="<?php echo base_url('assets/course/' . $co->location_folder . '/' . $co->course_cover) ?>" alt="<?php echo $co->nama_course ?>">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?php echo $co->nama_course?></h5>
-                                        <small><?php echo $co->judul?></small>
+                                        <h5 class="card-title"><?php echo $co->nama_course ?></h5>
+                                        <small><?php echo $co->judul ?></small>
                                     </div>
                                 </div>
                             </div>

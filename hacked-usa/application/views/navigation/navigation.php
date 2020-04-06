@@ -1,5 +1,5 @@
 <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-    <a class="navbar-brand d-none d-sm-block" href="<?php echo site_url()?>">Lauwba Academy</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
+    <a class="navbar-brand d-none d-sm-block" href="<?php echo site_url() ?>">Lauwba Academy</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
     <form class="form-inline mr-auto d-none d-lg-block"><input class="form-control form-control-solid mr-sm-2" type="search" placeholder="Search" aria-label="Search" /></form>
     <ul class="navbar-nav align-items-center ml-auto">
         <li class="nav-item dropdown no-caret mr-3 dropdown-user">
@@ -57,7 +57,10 @@
                             <a class="nav-link" href="<?php echo site_url('add-new-course') ?>">
                                 Add New Course
                             </a>
-                            <a class="nav-link" href="layout-rtl.html">
+                            <a class="nav-link" href="<?php echo site_url('materials-summary') ?>">
+                                Material Summary
+                            </a>
+                            <a class="nav-link" href="<?php echo site_url('add-new-material') ?>">
                                 Add New Material
                             </a>
 

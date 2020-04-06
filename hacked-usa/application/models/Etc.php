@@ -18,6 +18,11 @@ class Etc extends CI_Model{
         return $result;
     }
     
+    function getLastPath($path, $pathToGet){
+        $paths = explode('/', $path);
+        return $paths[$pathToGet];
+    }
+    
     function gen_uuid() {
         return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
                 // 32 bits for "time_low"

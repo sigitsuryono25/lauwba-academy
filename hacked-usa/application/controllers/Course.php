@@ -25,7 +25,7 @@ class Course extends CI_Controller {
         $data['titlepages'] = "Course Summary";
         $data['breadcrumbs'] = "Your Course/" . anchor("course-summary", "Course Summary", "class='text-white'") . "/";
         $data['top'] = $this->load->view('titles/titles-pages', $data, true);
-        $data['summary'] = $this->course->getCourseData("sigitsuryono25")->result();
+        $data['summary'] = $this->course->getCourseData($this->session->userdata('username'))->result();
         $data['main'] = $this->load->view('course/summary-course', $data, true);
         $this->load->view('template', $data);
     }
@@ -46,23 +46,24 @@ class Course extends CI_Controller {
         $courseDescriptions = $this->input->post('course-descriptions', true);
         $trainerId = $this->input->post('trainer-id', true);
         $trainingId = $this->input->post('training-id', true);
-        $seo = $this->etc->replaceAll("\/&@#$%", $courseName);
+        $seo = $this->etc->replaceAll("\s+\/&@#$%", $courseName);
         $idCourse = $this->etc->gen_uuid();
 
         //prepare array for insert
         $dataInsert = [];
 
         //prepare for uploading image
-        $config['upload_path'] = './assets/course/';
+        mkdir('./assets/course/' . $seo . "/", 0755);
+        $config['upload_path'] = './assets/course/' . $seo . "/";
         $config['max_size'] = 0;
         $config['allowed_types'] = "jpg|jpeg|png";
-        $config['file_name'] = $seo;
+        $config['file_name'] = $seo."-cover";
         $config['overwrite'] = true;
 
         //load config to the library
         $this->load->library('upload', $config);
 
-        //doupload
+//        //doupload
         if ($this->upload->do_upload('course-cover')) {
             $metadata = $this->upload->data();
 
@@ -74,6 +75,7 @@ class Course extends CI_Controller {
                 'trainer' => $trainerId,
                 'deskripsi' => $courseDescriptions,
                 'id_training' => $trainingId,
+                'location_folder' => $this->etc->replaceAll("\s+\/&@#$%", $seo),
                 'added_by' => $this->session->userdata('username')
             ];
         } else {
@@ -88,7 +90,7 @@ class Course extends CI_Controller {
             ];
         }
 
-        $this->course->insertData('tb_course', $dataInsert);
+        $this->crud->insertData('tb_course', $dataInsert);
     }
 
 }

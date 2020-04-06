@@ -63,3 +63,7 @@ $route['logout'] = 'login/logout';
 //course
 $route['course-summary'] = 'course/course_summary';
 $route['add-new-course'] = 'course/course_form';
+
+//materi
+$route['add-new-material'] = 'materi/index';
+$route['materials-summary'] = 'materi/list_materi';

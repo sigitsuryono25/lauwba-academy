@@ -16,7 +16,7 @@ class Welcome extends CI_Controller {
         $data['titlepages'] = "Dashboard";
         $data['breadcrumbs'] = anchor("main", "Dashboard", "class='text-white'") . "/";
         $data['top'] = $this->load->view('titles/titles-pages', $data, true);
-        $data['course'] = $this->course->getLatestCourse();
+        $data['course'] = $this->course->getLatestCourse("LIMIT 6");
         $data['main'] = $this->load->view('dashboard/dashboard', $data, true);
         $this->load->view('template', $data);
     }
