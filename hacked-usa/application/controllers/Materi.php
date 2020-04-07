@@ -67,6 +67,7 @@ class Materi extends CI_Controller {
         $locationFolder = $this->course->getCourseById($idCourse)->row()->location_folder;
         $destFolder = $this->etc->replaceAll("\s+\/&@#$%", $namaMateri);
         $uploadPath = './assets/course/' . $locationFolder . "/" . $destFolder . '/';
+        $this->etc->createHtaccess($uploadPath);
         if (!is_dir($uploadPath)) {
             mkdir($uploadPath, 0755);
         }
@@ -89,6 +90,8 @@ class Materi extends CI_Controller {
 
     private function extractZip($data, $metadata, $uploadPath) {
         $path = $metadata['full_path'];
+
+        $this->etc->createHtaccess($metadata['file_path']);
         $zip = new ZipArchive();
         if ($zip->open($path)) {
             $zip->extractTo($metadata['file_path']);
@@ -106,7 +109,8 @@ class Materi extends CI_Controller {
             if (in_array($file_ext[1], $allowed_show)) {
                 $dataVideo = [
                     'id_video' => $this->etc->gen_uuid(),
-                    'file_name' => $uploadPath . $file,
+                    'upload_path' => $uploadPath,
+                    'file_name' => $file,
                     'id_materi' => $data['id_materi'],
                     'added_by' => $this->session->userdata('username')
                 ];
@@ -124,7 +128,7 @@ class Materi extends CI_Controller {
         $data['titlepages'] = "Material Summary";
         $data['breadcrumbs'] = "Your Course/" . anchor("#", "Material Summary", "class='text-white'") . "/";
         $data['top'] = $this->load->view('titles/titles-pages', $data, true);
-        $data['materi'] = $this->materi->getMaterial();
+        $data['course'] = $this->course->getCourseData();
         $data['main'] = $this->load->view('materi/summary-material', $data, true);
         $this->load->view('template', $data);
     }
@@ -136,8 +140,8 @@ class Materi extends CI_Controller {
             foreach ($res->result() as $r) {
                 $tmp = [];
                 $tmp['id_video'] = $r->id_video;
-                $tmp['file_name'] = base_url($r->file_name);
-                $tmp['friendly_name'] = $this->etc->getLastPath($r->file_name, sizeof(explode('/', $r->file_name)) - 1);
+                $tmp['file_name'] = base_url($r->upload_path . $r->file_name);
+                $tmp['friendly_name'] = $this->etc->getLastPath($r->upload_path . $r->file_name, sizeof(explode('/', $r->upload_path . $r->file_name)) - 1);
                 $tmp['id_materi'] = $r->id_materi;
 
                 array_push($data['data'], $tmp);
@@ -148,6 +152,38 @@ class Materi extends CI_Controller {
         } else {
             echo json_encode(['message' => 'no data found', 'code' => 404]);
         }
+    }
+
+    function get_materi_list($idCourse) {
+        $res = $this->materi->getMateriListByUserAndCourse($idCourse);
+        $data['data'] = [];
+        if ($res->num_rows() > 0) {
+            foreach ($res->result() as $r) {
+                $tmp = [];
+                $tmp['id_materi'] = $r->id_materi;
+                $tmp['nama_materi'] = $r->nama_materi;
+                $tmp['deskripsi_materi'] = $r->deskripsi_materi;
+
+                array_push($data['data'], $tmp);
+            }
+            $data['message'] = 'data found';
+            $data['code'] = 200;
+            echo json_encode($data);
+        } else {
+            echo json_encode(['message' => 'no data found', 'code' => 404]);
+        }
+    }
+
+    function delete_materi($idMateri) {
+        $videoList = $this->materi->getListVideoByIdMateri($idMateri)->result();
+//        print_r($videoList);
+        foreach ($videoList as $v) {
+            unlink($v->upload_path . $v->file_name);
+            rmdir($v->upload_path);
+        }
+        $dataDelete = ['id_materi' => $idMateri];
+        $this->crud->deleteData('tb_materi', $dataDelete);
+        echo "hapus data success";
     }
 
 }

@@ -130,7 +130,8 @@
             });
 
             this.on('success', function (file, responseText) {
-                console.log(responseText);
+                alert(responseText);
+                location.assign("<?php echo site_url('materials-summary')?>")
             });
         }
     });

@@ -29,9 +29,10 @@ class Course_mdl extends CI_Model {
         return $this->db->query("SELECT * FROM lauwbaco_latest_lauwba.jenis ");
     }
 
-    function getCourseData($userid) {
+    function getCourseData($userid = null) {
+        $username = $this->session->userdata('username');
         return $this->db->query("SELECT * FROM tb_course LEFT JOIN lauwbaco_latest_lauwba.tutor on tb_course.trainer=tutor.id_tutor "
-                        . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.added_by IN ('$userid')");
+                        . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.added_by IN ('$username')");
     }
     
     function getCourseById($idCourse){

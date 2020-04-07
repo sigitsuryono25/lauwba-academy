@@ -92,5 +92,14 @@ class Course extends CI_Controller {
 
         $this->crud->insertData('tb_course', $dataInsert);
     }
+    
+    function delete_course($idCourse){
+        $res = $this->course->getCourseById($idCourse)->row();
+        $this->etc->rrmdir("./assets/course/".$res->location_folder);
+//        rmdir("./assets/course/".$res->location_folder);
+        $deleteData = ['id_course'=> $idCourse];
+        $this->crud->deleteData('tb_course', $deleteData);
+        redirect('course-summary');
+    }
 
 }

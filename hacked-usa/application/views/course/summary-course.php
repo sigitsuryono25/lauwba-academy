@@ -44,9 +44,9 @@
                                     <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2">
                                         <i class="fa fa-edit text-warning"></i>
                                     </button>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark">
+                                    <a href="<?php echo site_url('course/delete_course/'.$s->id_course)?>" onclick="return confirm('Hapus data ini?')" class="btn btn-datatable btn-icon btn-transparent-dark">
                                         <i class="fa fa-trash text-danger"></i>
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         <?php } ?>
