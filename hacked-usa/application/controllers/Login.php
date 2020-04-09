@@ -29,7 +29,8 @@ class Login extends CI_Controller {
                 $sessionData = [
                     'nama' => $data->nama,
                     'username' => $data->username,
-                    'foto' => $data->foto
+                    'foto' => $data->foto,
+                    'id_tutor' => $data->id_tutor
                 ];
 
                 $this->session->set_userdata($sessionData);

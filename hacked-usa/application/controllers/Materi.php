@@ -116,6 +116,7 @@ class Materi extends CI_Controller {
                 ];
 
                 $this->crud->insertData('tb_video', $dataVideo);
+                sleep(1);
             }
         }
 
@@ -179,6 +180,7 @@ class Materi extends CI_Controller {
 //        print_r($videoList);
         foreach ($videoList as $v) {
             unlink($v->upload_path . $v->file_name);
+            unlink($v->upload_path . '.htaccess');
             rmdir($v->upload_path);
         }
         $dataDelete = ['id_materi' => $idMateri];

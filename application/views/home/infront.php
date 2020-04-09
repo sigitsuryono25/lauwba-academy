@@ -88,11 +88,11 @@
         </div>
     </div>
 </div>
-<div class="py-5  text-center text-white bg-dark" >
+<div class="py-5  text-center text-white bg-dark background-center">
     <div class="container py-5 my-5">
         <div class="row">
-            <div class="mx-auto col-lg-5 col-md-7 col-10 text-white">
-                <h4>Dapatkan rekomendasi yang dipersonalisasi</h4>
+            <div class="mx-auto col-lg-5 col-md-7 col-10 text-white pt-4" 
+                 <h4>Dapatkan rekomendasi yang dipersonalisasi</h4>
                 <p class="mb-3 text-white">Jawab beberapa pertanyaan untuk pilihan terbaik Anda</p>
                 <a class="btn btn-primary" href="#">Mulai Sekarang</a>
             </div>
@@ -123,7 +123,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 text-center">
-                                <i class="fa fa-3x fa-globe" style="color: orange"></i>
+                                <i class="fa fa-3x fa-globe text-warning"></i>
                             </div>
                             <div class="col-md-9 text-center">
                                 <p class="mt-2">Website</p>
@@ -137,10 +137,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 text-center">
-                                <i class="fa fa-3x fa-laptop text-info"></i>
+                                <i class="fa fa-3x fa-laptop text-primary"></i>
                             </div>
                             <div class="col-md-9 text-center text-center">
-                                <p class="mt-2">Teknisi Komputer</p>
+                                <p class="mt-2">Flutter</p>
                             </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                         <div class="row">
                             <div class="col-md-3 text-center">
 <!--                                <img class="img-fluid" src="https://i.udemycdn.com/browse_components/value-props-unit/video_courses.svg">-->
-                                <i class="fa fa-3x fa-paypal text-primary"></i>
+                                <i class="fa fa-3x fa-paypal text-info"></i>
                             </div>
                             <div class="col-md-9 text-center">
                                 <p class="mt-2">Digital Marketing</p>
@@ -246,19 +246,38 @@
         </div>
     </div>
 </div>
-<div class="pb-5 text-center" >
+<div class="pb-5 pt-5 text-center" >
     <div class="container">
         <span class="mb-3">Dipercayai Oleh</span><br><br>
         <div class="row text-center">
             <div class="mx-auto col-md-7">
                 <div class="row text-muted">
-                    <div class="col-md-3 col-4 p-2 mb-2"> <i class="d-block fa fa-angellist fa-3x"></i> </div>
-                    <div class="col-md-3 col-4 p-2 mb-2"> <i class="d-block fa fa-cc-visa fa-3x"></i> </div>
-                    <div class="col-md-3 col-4 p-2 mb-2"> <i class="d-block fa fa-amazon fa-3x"></i> </div>
-                    <div class="col-md-3 col-4 p-2 mb-2"> <i class="d-block fa fa-paypal fa-3x"></i> </div>
-                    <div class="col-4 p-2 mb-2"> <i class="d-block fa fa-empire fa-3x"></i> </div>
-                    <div class="col-4 p-2 mb-2"> <i class="d-block fa fa-rebel fa-3x"></i> </div>
-                    <div class="col-4 p-2 mb-2"> <i class="d-block fa fa-first-order fa-3x"></i> </div>
+                    <div class="col-md-3 col-4 p-2 mb-2">
+                        <img class="img-fluid gray-scale w-50" src="https://pngimage.net/wp-content/uploads/2018/06/logo-untar-png-6.jpg" alt="Pineapple">
+                    </div>
+                    <div class="col-md-3 col-4 p-2 mb-2 mt-2 align-middle">
+                        <img class="img-fluid gray-scale  w-50" src="https://www.akakom.ac.id/themes/akakom/dist/images/logo-footer.png" alt="Pineapple" >
+
+                    </div>
+                    <div class="col-md-3 col-4 p-2 mb-2">
+                        <img class="img-fluid gray-scale  w-50" src="http://www.ust.ac.id//assets/img/icon.png" alt="Pineapple" >
+                    </div>
+
+                    <div class="col-md-3 col-4 p-2 mb-2">
+                        <img class="img-fluid gray-scale  w-50" src="https://umsrappang.ac.id/asset/kcfinder/upload/files/LOGO%20FINAL%20UMS%20RAPPANG.png" alt="Pineapple" >
+
+                    </div>
+                    <div class="col-4 p-2 mb-2">
+                        <img class="img-fluid gray-scale w-75" src="https://i1.wp.com/indoforwarding.com/wp-content/uploads/2019/06/wahana-2.png?resize=768%2C326&ssl=1" alt="Pineapple" >
+
+                    </div>
+                    <div class="col-4 p-2 mb-2">
+                        <img class="img-fluid gray-scale  w-50" src="http://www.interadigm.com/wp-content/uploads/2016/06/QAFCO-LOGO.jpg" alt="Pineapple" >
+
+                    </div>
+                    <div class="col-4 p-2 mb-2">                         
+                        <img class="img-fluid gray-scale  w-50" src="https://akupintar.id/documents/20143/0/download+%281%29aafag.png/8135d607-38f3-6c48-931a-c4b1c752e283?version=1.0&t=1519338503514&imageThumbnail=1" alt="Pineapple" >
+                    </div>
                 </div>
             </div>
         </div>

@@ -14,9 +14,6 @@
                     </div>
                 </h6>
                 <div class="dropdown-divider"></div>
-                <!--                <a class="dropdown-item" href="#!"
-                                   ><div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                                    Account</a-->
                 <a class="dropdown-item" href="<?php echo site_url('logout') ?>">
                     <div class="dropdown-item-icon">
                         <i data-feather="log-out"></i>
@@ -37,14 +34,14 @@
                         <div class="nav-link-icon">
                             <i data-feather="home"></i>
                         </div>
-                        Dashboards
+                        Beranda
                     </a>
                     <div class="sidenav-menu-heading">Course</div>
                     <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="nav-link-icon">
                             <i data-feather="book" class="lead"></i>
                         </div>
-                        Your Course
+                        Kursus Anda
                         <div class="sidenav-collapse-arrow">
                             <i class="fas fa-angle-down"></i>
                         </div>
@@ -52,16 +49,16 @@
                     <div class="collapse" id="collapseLayouts" data-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavLayout">
                             <a class="nav-link" href="<?php echo site_url('course-summary') ?>">
-                                Course Summary
+                                Ringkasan Kursus
                             </a>
                             <a class="nav-link" href="<?php echo site_url('add-new-course') ?>">
-                                Add New Course
+                                Tambah Kursus Baru
                             </a>
                             <a class="nav-link" href="<?php echo site_url('materials-summary') ?>">
-                                Material Summary
+                                Ringkasan Materi
                             </a>
                             <a class="nav-link" href="<?php echo site_url('add-new-material') ?>">
-                                Add New Material
+                                Tambah Materi Baru
                             </a>
 
                         </nav>
@@ -70,7 +67,7 @@
                         <div class="nav-link-icon">
                             <i data-feather="message-circle"></i>
                         </div>
-                        Comment
+                        Komentar
                     </a>
                 </div>
             </div>

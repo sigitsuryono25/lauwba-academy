@@ -1,8 +1,9 @@
+<!--SELECT * FROM `kategori1` LEFT JOIN jenis ON kategori1.id_kategori=jenis.id_kategori INNER JOIN db_lauwba_academy.tb_course ON db_lauwba_academy.tb_course.id_training=jenis.id_jenis-->
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-        <title>Lauwba Academy</title>
+        <title><?php echo $title ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8" />
         <script>
@@ -28,16 +29,59 @@
             /*Without this, clicking will make it sticky*/
             pointer-events: none;
         }
+        .gray-scale {
+            -webkit-filter: grayscale(100%);  /*Safari 6.0 - 9.0 */
+            filter: grayscale(100%);
+        }
+        .content {
+            position: relative;
+            width: 100%;
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .content:hover .image {
+            opacity: 0.3;
+        }
+
+        .content:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
     </style>
     <body>
         <!--NAVIGATION-->
-        <?php echo $navigation?>
+        <?php echo $navigation ?>
         <!--BANNER-->
         <?php echo $banner ?>
 
         <div class="container-fluid p-0 bg-light">
             <!--content start here-->
-            <?php echo $content?>
+            <?php echo $content ?>
         </div>
 
         <!-- footer -->
@@ -60,7 +104,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.instagram.com/lauwba_techno/">
                                             <span class="fa fa-instagram"></span>
                                         </a>
                                     </li>

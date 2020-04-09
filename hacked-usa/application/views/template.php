@@ -11,11 +11,11 @@
         <link href="<?php echo base_url('assets/') ?>css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />        
         <link href="<?php echo base_url('assets/') ?>js/datatables/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url('assets/') ?>dropzone/dropzone.css">
         <script src="<?php echo base_url('assets/js/jquery/') ?>jquery-3.4.1.min.js"></script>
-        <script src="<?php echo base_url('assets/')?>dropzone/dropzone.js"></script>
-        <script data-search-pseudo-elements defer src="<?php echo base_url('assets/js/') ?>font-awesome/5.11.2/js/all.min.js"></script>
+        <script src="<?php echo base_url('assets/') ?>dropzone/dropzone.js"></script>
         <script src="<?php echo base_url('assets/js/feather-icons/4.24.1/') ?>feather.min.js"></script>
     </head>
     <style>
@@ -96,6 +96,7 @@
             </div>
         </div>
     </div>
+    <?php $this->load->view('course/modal-detail-course') ?>
     <script src="<?php echo base_url('assets/js/bootstrap/') ?>bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url('assets/') ?>js/scripts.js"></script>
     <!--<script src="<?php echo base_url('assets/') ?>js/sb-customizer.js"></script>-->
@@ -104,22 +105,7 @@
     <script src="<?php echo base_url('assets/') ?>demo/datatables-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
-    <script>
-        $('.summernote').summernote({
-            tabsize: 2,
-            height: 250
-        });
-        function showPopup() {
-            // $("#popupimage").modal('show');
-            $('#progressModal').modal({
-                backdrop: 'static'
-            });
-        }
-        function hidePopup() {
-            // $("#popupimage").modal('show');
-            $('#progressModal').modal('hide');
-        }
-    </script>
+    <script src="<?php echo base_url('assets/') ?>js/lauwbaacademy.js"></script>
 </body>
 
 <!-- Mirrored from themes.startbootstrap.com/sb-admin-pro/blank.html by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 03 Apr 2020 02:22:15 GMT -->

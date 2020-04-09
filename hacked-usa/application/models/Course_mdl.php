@@ -23,8 +23,7 @@ class Course_mdl extends CI_Model {
         return $this->db->query("SELECT * FROM tb_course LEFT JOIN lauwbaco_latest_lauwba.tutor on tb_course.trainer=tutor.id_tutor "
                         . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.added_by IN ('$username') ORDER BY tb_course.created_on DESC $limit");
     }
-    
-    
+
     function getTraining() {
         return $this->db->query("SELECT * FROM lauwbaco_latest_lauwba.jenis ");
     }
@@ -34,8 +33,13 @@ class Course_mdl extends CI_Model {
         return $this->db->query("SELECT * FROM tb_course LEFT JOIN lauwbaco_latest_lauwba.tutor on tb_course.trainer=tutor.id_tutor "
                         . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.added_by IN ('$username')");
     }
-    
-    function getCourseById($idCourse){
-        return $this->db->query("SELECT * FROM tb_course WHERE id_course IN ('$idCourse')");
+
+    function getCourseById($idCourse) {
+
+        $username = $this->session->userdata('username');
+        return $this->db->query("SELECT * FROM tb_course LEFT JOIN lauwbaco_latest_lauwba.tutor on tb_course.trainer=tutor.id_tutor "
+                        . "LEFT JOIN lauwbaco_latest_lauwba.jenis on tb_course.id_training=jenis.id_jenis WHERE tb_course.id_course IN('$idCourse') AND tb_course.added_by IN ('$username')");
+//        return $this->db->query("SELECT * FROM tb_course WHERE id_course IN ('$idCourse')");
     }
+
 }

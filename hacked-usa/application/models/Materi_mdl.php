@@ -27,7 +27,7 @@ class Materi_mdl extends CI_Model {
 
     function getListVideoByIdMateri($idMateri) {
         $username = $this->session->userdata('username');
-        return $this->db->query("SELECT * FROM tb_video WHERE added_by IN ('$username') AND id_materi IN ('$idMateri')");
+        return $this->db->query("SELECT * FROM tb_video WHERE added_by IN ('$username') AND id_materi IN ('$idMateri') ORDER BY created_on ASC");
     }
 
 }

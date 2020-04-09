@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
     public function index() {        
         $data['navigation'] = $this->load->view('navigation/navigation', null, TRUE);
         $data['banner'] = $this->load->view('headfoot/banner', null, TRUE);
-        $data['content'] = $this->load->view('home/course', null, TRUE);
+        $data['content'] = $this->load->view('home/infront', null, TRUE);
         $this->load->view('template/home', $data);
     }
 
