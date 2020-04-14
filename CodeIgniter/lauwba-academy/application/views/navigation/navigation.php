@@ -29,7 +29,7 @@
             </ul>
             <ul class="navbar-nav ml-lg-auto text-center">
                 <li>
-                    <button type="button" class="btn w3ls-btn-outline mb-2 mt-2" >
+                    <button type="button" class="btn w3ls-btn-outline mb-2 mt-2" data-target="#modal-login" data-toggle="modal">
                         login
                     </button>
                 </li>

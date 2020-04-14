@@ -18,6 +18,19 @@ class Etc extends CI_Model {
         return $result;
     }
 
+    function get_video_duration($location) {
+//        require_once('../../getID3-master/getid3/getid3.php');
+        require_once('./getID3-master/getid3/getid3.php');
+        $getID3 = new getID3();
+        $filename ="hacked-usa/$location";
+        $fileinfo = $getID3->analyze($filename);
+
+        $playString = $fileinfo['playtime_string'];
+
+
+        return $playString;
+    }
+
     function gen_uuid() {
         return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
                 // 32 bits for "time_low"

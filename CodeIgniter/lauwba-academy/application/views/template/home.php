@@ -19,6 +19,7 @@
         <link href="<?php echo base_url('assets/') ?>css/aasana.css" type="text/css" rel="stylesheet" media="all">
         <link href="<?php echo base_url('assets/') ?>css/font-awesome.min.css" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+        <script src="<?php echo base_url('assets/') ?>js/jquery-2.2.3.min.js"></script>
     </head>
     <style>
         .dropdown:hover>.dropdown-menu {
@@ -137,12 +138,15 @@
                 <!-- /footerv4-top -->
             </div>
         </div>
+
+        <!--modal login-->
+        <?php $this->load->view('home/modal-login') ?>
+
         <!-- //footer -->
         <div class="cpy-right">
             <p>&copy; <?php echo date('Y') ?> Lauwba Academy Design By LTI Creative Team</p>
         </div>
 
-        <script src="<?php echo base_url('assets/') ?>js/jquery-2.2.3.min.js"></script>
         <script src="<?php echo base_url('assets/') ?>js/responsiveslides.min.js"></script>
         <script>
             // You can also use"$(window).load(function() {"

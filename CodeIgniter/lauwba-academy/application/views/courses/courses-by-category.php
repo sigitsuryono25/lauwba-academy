@@ -10,7 +10,7 @@
             if ($courses->num_rows() > 0) {
                 foreach ($courses->result() as $key => $cat) {
                     ?>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="content">
                                 <div class="image" style="
@@ -27,17 +27,26 @@
                                 <!--&nbsp;Android-->
                             </label>
                             <div class="card-body">
-                                <span style="max-width: 200px;" class="card-title d-inline-block text-truncate"><?php echo $cat->nama_course ?></span><br>
+                                <span style="max-width: 200px;" class="card-title d-inline-block"><?php echo $cat->nama_course ?></span><br>
                                 <small class="lead" style="font-size: 14px;"><?php echo $cat->nama ?></small>
-                            </div>
-                            <div class="card-footer">
-                                <div class="container text-center">
+                                <div class="container-fluid p-0">
                                     <i class="fa fa-star text-warning"></i>
                                     <i class="fa fa-star text-warning"></i>
                                     <i class="fa fa-star text-warning"></i>
                                     <i class="fa fa-star text-warning"></i>
                                     <i class="fa fa-star-half text-warning"></i>&nbsp;&nbsp;
                                     <label>4.5</label>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-md-6 text-left">
+                                        <label class="badge badge-success">40%</label>
+                                        <small class=""><del>Rp. 1.250.999</del></small>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <small class="font-weight-bold">Rp. 599.000</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +59,7 @@
     </div>
 </div>
 <div class="bg-light pt-4">
-    <?php echo $random?>
+    <?php echo $random ?>
 </div>
 <?php echo $kategori_tersedia ?>
 <?php echo $kata_peserta ?>
