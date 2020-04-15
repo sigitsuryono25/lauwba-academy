@@ -90,6 +90,7 @@ function showFormInputExist(idMateri, namamateri) {
 }
 function getMateriByCourse() {
     var idCourse = $("#selected-id-course").html();
+    $(".list-materi").html("");
     if (idCourse !== "") {
         var url = "materi/getmateribycourse/" + idCourse;
         $.get(url, null, function (res, textStatus, jqXHR) {
@@ -99,7 +100,7 @@ function getMateriByCourse() {
                         +' data-toggle="list" role="tab" data-materi="'
                         + data[i].id_materi + '">'
                         + data[i].nama_materi + '</a>';
-                $(".list-materi").html(innerData);
+                $(".list-materi").append(innerData);
             }
         }, 'json');
     }
@@ -111,7 +112,7 @@ $("#videomaterials").dropzone({
     maxFilesize: 2048,
     timeout: 3600000,
 //        uploadMultiple: true,
-    acceptedFiles: ".zip",
+    acceptedFiles: ".mp4",
     init: function () {
         var dz = this;
         $(".myForm").submit(function (e) {
@@ -125,6 +126,8 @@ $("#videomaterials").dropzone({
             formdata.append('nama-materi', $('[name="nama-materi"]').val());
             formdata.append('deskripsi-materi', $('[name="deskripsi-materi"]').val());
             formdata.append('id-course', $('[name="id-course"]').val());
+            formdata.append('judul-video', $('[name="judul-video"]').val());
+            formdata.append('mode', 'add');
         });
 
         this.on('success', function (file, responseText) {
@@ -135,13 +138,13 @@ $("#videomaterials").dropzone({
     }
 });
 $("#videofromexist").dropzone({
-    url: "materi/add_material_proc",
+    url: "materi/new_add_material_proc",
     autoProcessQueue: false,
 //    parallelUploads: 100,
     maxFilesize: 2048,
     timeout: 3600000,
 //    uploadMultiple: true,
-    acceptedFiles: ".mp4,.mkv",
+    acceptedFiles: ".mp4",
     init: function () {
         var dz = this;
         $(".myFormExist").submit(function (e) {
@@ -152,13 +155,16 @@ $("#videofromexist").dropzone({
 
         this.on("sending", function (data, xhr, formdata) {
             formdata.append('nama-materi', $('[name="nama-materi"]').val());
+            formdata.append('id-materi', $('[name="id-materi"]').val());
             formdata.append('deskripsi-materi', $('[name="deskripsi-materi"]').val());
             formdata.append('id-course', $('[name="id-course"]').val());
+            formdata.append('judul-video', $('[name="judul-video"]').val());
+            formdata.append('mode', 'edit');
         });
 
         this.on('success', function (file, responseText) {
             alert(responseText);
-            location.assign('<?php echo site_url("materials-summary")?>');
+            location.assign("materials-summary");
         });
     }
 });

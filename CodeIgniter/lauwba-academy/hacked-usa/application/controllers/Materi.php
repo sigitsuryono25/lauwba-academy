@@ -51,7 +51,9 @@ class Materi extends CI_Controller {
     function new_add_material_proc() {
         $namaMateri = $this->input->post('nama-materi');
         $descMateri = $this->input->post('deskripsi-materi');
-        $idMateri = $this->etc->gen_uuid();
+        $idMateri = empty($this->input->post('id-materi')) ? $this->etc->gen_uuid() : $this->input->post('id-materi');
+        $judulVideo = $this->input->post('judul-video');
+        $mode = $this->input->post('mode');
 
         $idCourse = $this->input->post('id-course');
 
@@ -73,8 +75,10 @@ class Materi extends CI_Controller {
         }
         $config['upload_path'] = $uploadPath;
         $config['max_size'] = 0;
-        $config['allowed_types'] = "zip";
-        $config['file_name'] = $destFolder . "-pakced";
+//        $config['allowed_types'] = "zip";
+        $config['allowed_types'] = "mp4";
+//        $config['file_name'] = $destFolder . "-pakced";
+        $config['file_name'] = $judulVideo;
         $config['overwrite'] = true;
 
         //load config to the library
@@ -82,7 +86,22 @@ class Materi extends CI_Controller {
 
         if ($this->upload->do_upload('file')) {
             $metadata = $this->upload->data();
-            $this->extractZip($dataInsert, $metadata, $uploadPath);
+//            $this->extractZip($dataInsert, $metadata, $uploadPath);
+
+            $dataVideo = [
+                'id_video' => $this->etc->gen_uuid(),
+                'upload_path' => $uploadPath,
+                'file_name' => $metadata['file_name'],
+                'id_materi' => $idMateri,
+                'video_title' => $judulVideo,
+                'added_by' => $this->session->userdata('username')
+            ];
+
+
+            if ($mode == 'add') {
+                $this->crud->insertData('tb_materi', $dataInsert);
+            }
+            $this->crud->insertData('tb_video', $dataVideo);
         } else {
             
         }

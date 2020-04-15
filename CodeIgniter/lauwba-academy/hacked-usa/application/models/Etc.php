@@ -42,8 +42,8 @@ class Etc extends CI_Model {
         $files = fopen($path . '.htaccess', 'w');
         $txt = "#Contents of .htaccess
 RewriteEngine on
-RewriteCond %{HTTP_REFERER} !^http://localhost/*$ [NC]
-RewriteCond %{HTTP_REFERER} !^http://localhost/*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://localhost/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http://localhost/.*$ [NC]
 RewriteRule .(mp4|mp3|avi|jpg|png)$ - [F]";
         fwrite($files, $txt);
     }

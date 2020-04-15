@@ -20,7 +20,8 @@
                             <th>#</th>
                             <th>Kursus</th>
                             <th>Kelas Training</th>
-                            <th>Cover Kursus</th>
+                            <th>Cover Kursus</th>   
+                            <th>Video Preview</th>   
                             <th>Tindakan</th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                             <th>Kursus</th>
                             <th>Kelas Training</th>
                             <th>Cover Kursus</th>
+                            <th>Video Preview</th>   
                             <th>Tindakan</th>
                         </tr>
                     </tfoot>
@@ -37,18 +39,26 @@
                         <?php foreach ($summary as $key => $s) { ?>
                             <tr>
                                 <td class="align-middle"><?php echo $key + 1 ?></td>
-                                <td class="align-middle" width="25%"><?= $s->nama_course ?></td>
-                                <td class="align-middle" width="35%"><?= $s->judul ?></td>
+                                <td class="align-middle" width="20%"><?= $s->nama_course ?></td>
+                                <td class="align-middle" width="20%"><?= $s->judul ?></td>
                                 <td class="align-middle text-center" width="20%"><img src="<?= base_url('assets/course/') . $s->location_folder . '/' . $s->course_cover ?>" class="img-fluid img-thumbnail w-50"/></td>
-                                <td class="text-center align-middle">
-                                    <a class="btn btn-datatable btn-icon mr-2" href="javascript:void(0)" onclick="return shownDetailCourse('<?php echo $s->id_course ?>')">
-                                        <i class="fa fa-eye text-success"></i>
+                                <td class="align-middle" width="20%"><?= empty($s->video_preview) ? "Belum ada video preview course. Silahkan tambahkan satu " : "" ?></td>
+                                <td class="text-center align-middle" width="20%">
+                                    <a class="btn btn-success mb-1" href="javascript:void(0)" onclick="return shownDetailCourse('<?php echo $s->id_course ?>')">
+                                        <i class="fa fa-eye"></i>&nbsp;&nbsp;
+                                        Detail Course
                                     </a>
-                                    <a class="btn btn-datatable btn-icon mr-2" href="<?php echo site_url('edit-course/' . $s->id_course . '?mode=edit') ?>">
-                                        <i class="fa fa-edit text-warning"></i>
+                                    <a href="" title="tambah preview video"class="btn btn-primary mb-1" onclick="return showModalAddVideo('<?php echo $s->id_course ?>')" data-target="#add-video-preview" data-toggle="modal">
+                                        <i class="fa fa-plus"></i>&nbsp;&nbsp;
+                                        Video Preview
                                     </a>
-                                    <a href="<?php echo site_url('course/delete_course/' . $s->id_course) ?>" onclick="return confirm('Hapus data ini?')" class="btn btn-datatable btn-icon ">
-                                        <i class="fa fa-trash text-danger"></i>
+                                    <a class="btn btn-warning mb-1" href="<?php echo site_url('edit-course/' . $s->id_course . '?mode=edit') ?>">
+                                        <i class="fa fa-edit "></i>&nbsp;&nbsp;
+                                        Edit Course
+                                    </a>
+                                    <a href="<?php echo site_url('course/delete_course/' . $s->id_course) ?>" onclick="return confirm('Hapus data ini?')" class="btn btn-danger mb-1">
+                                        <i class="fa fa-trash"></i>&nbsp;&nbsp;
+                                        Hapus Course
                                     </a>
                                 </td>
                             </tr>
@@ -59,3 +69,10 @@
         </div>
     </div>
 </div>
+<?php $this->load->view('course/modal-add-video-prev'); ?>
+<script>
+    function showModalAddVideo(idCourse){
+        $('[name="id-courses"]').val(idCourse);
+    }
+
+</script>

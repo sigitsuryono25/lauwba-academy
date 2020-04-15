@@ -1,15 +1,15 @@
 <div class="container mt-n5">
     <div class="card">
-        <div class="card-header">Add New Materials</div>
+        <div class="card-header">Tambah Meteri Baru</div>
         <div class="card-body">
             <div class="container">
                 <div class="alert alert-primary" role="alert">
-                    You have <?php echo $materi->num_rows() ?> Material(s)
+                    Anda Memiliki <?php echo $materi->num_rows() ?> Materi
                 </div>
                 <div class="row">
                     <div class="col-md-12 mb-4"> 
                         <div class="card">
-                            <div class="card-header">Course You Made</div>
+                            <div class="card-header">Kursus yang telah anda buat</div>
                             <div class="card-body">
                                 <div class="list-group " id="list-tab" role="tablist">
                                     <?php foreach ($course->result() as $co) { ?>
@@ -41,12 +41,16 @@
                                 <form method="post" enctype="multipart/form-data" class="myForm">
                                     <input type="hidden" name="id-course"/>
                                     <div class="form-group">
-                                        <label for="materialname">Material Name</label>
+                                        <label for="materialname">Nama Materi</label>
                                         <input type="text" name="nama-materi" id="materialname" class="form-control" required>
                                     </div>
                                     <div class="form-group pt-3 table-responsive">
-                                        <label>Material Description</label>
+                                        <label>Deskripsi Materi</label>
                                         <textarea class="summernote form-control shadow-none" name="deskripsi-materi" style="border: 0px;" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="materialname">Judul Video</label>
+                                        <input type="text" name="judul-video" id="materialname" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="videomaterials">Video Files</label>
@@ -68,15 +72,19 @@
                                     <input type="hidden" name="id-course"/>
                                     <input type="hidden" name="id-materi"/>
                                     <div class="form-group">
-                                        <label for="materialname">Material Name</label>
-                                        <input type="text" readonly name="nama-materi" id="materialname" class="form-control-plaintext" required>
+                                        <label for="materialname">Nama Materi</label>
+                                        <input type="text" name="nama-materi" id="materialname" class="form-control" required>
                                     </div>
                                     <div class="form-group pt-3 table-responsive">
-                                        <label>Material Description</label>
+                                        <label>Deskripsi Materi</label>
                                         <textarea class="summernote form-control shadow-none" name="deskripsi-materi" style="border: 0px;" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="videofromexist">Video Files</label>
+                                        <label for="materialname">Judul Video</label>
+                                        <input type="text" name="judul-video" id="materialname" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="videomaterials">Video Files</label>
                                         <div class="dropzone border-0 bg-light" id="videofromexist"> 
                                             <div class="fallback">    
                                                 <input type="file" name="file[]" required="">

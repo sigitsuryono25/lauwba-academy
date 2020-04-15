@@ -17,6 +17,7 @@
         <script src="<?php echo base_url('assets/js/jquery/') ?>jquery-3.4.1.min.js"></script>
         <script src="<?php echo base_url('assets/') ?>dropzone/dropzone.js"></script>
         <script src="<?php echo base_url('assets/js/feather-icons/4.24.1/') ?>feather.min.js"></script>
+
     </head>
     <style>
         .lds-facebook {

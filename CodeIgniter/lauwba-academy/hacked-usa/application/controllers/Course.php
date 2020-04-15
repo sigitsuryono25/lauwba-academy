@@ -49,6 +49,7 @@ class Course extends CI_Controller {
         $trainerId = $this->input->post('trainer-id', true);
         $trainingId = $this->input->post('training-id', true);
         $idCourse = $this->etc->gen_uuid();
+        $yangDipelajari = $this->input->post('yang-dipelajari');
 
         $mode = $this->input->get('mode');
         echo $mode;
@@ -57,12 +58,12 @@ class Course extends CI_Controller {
 
         //prepare array for insert
 //        $dataInsert = [];
-
         //prepare for uploading image
         if ($mode == 'add') {
             $seo = $this->etc->replaceAll("\s+\/&@#$%", $courseName);
             if (!is_dir('./assets/course/' . $seo . "/")) {
                 mkdir('./assets/course/' . $seo . "/", 0755);
+                mkdir('./assets/course/' . $seo . "/preview-courses/", 0755);
             }
         } else {
             $oldFolderName = $this->course->getCourseById($selectedIdCourse)->row()->location_folder;
@@ -71,6 +72,7 @@ class Course extends CI_Controller {
             rename("./assets/course/$oldFolderName", "./assets/course/$seo");
             unlink("./assets/course/$seo/$oldFileName");
         }
+
         $config['upload_path'] = './assets/course/' . $seo . "/";
         $config['max_size'] = 0;
         $config['allowed_types'] = "jpg|jpeg|png";
@@ -79,7 +81,6 @@ class Course extends CI_Controller {
 
         //load config to the library
         $this->load->library('upload', $config);
-
 //        //doupload
         if ($this->upload->do_upload('course-cover')) {
             $metadata = $this->upload->data();
@@ -91,6 +92,7 @@ class Course extends CI_Controller {
                 'course_cover' => $metadata['file_name'],
                 'trainer' => $this->session->userdata('id_tutor'),
                 'deskripsi' => $courseDescriptions,
+                'yang_dipelajari' => $yangDipelajari,
                 'id_training' => $trainingId,
                 'location_folder' => $this->etc->replaceAll("\s+\/&@#$%", $seo),
                 'added_by' => $this->session->userdata('username')
@@ -101,6 +103,7 @@ class Course extends CI_Controller {
                 'course_cover' => $metadata['file_name'],
                 'trainer' => $this->session->userdata('id_tutor'),
                 'deskripsi' => $courseDescriptions,
+                'yang_dipelajari' => $yangDipelajari,
                 'location_folder' => $this->etc->replaceAll("\s+\/&@#$%", $seo),
                 'id_training' => $trainingId,
                 'added_by' => $this->session->userdata('username')
@@ -115,6 +118,7 @@ class Course extends CI_Controller {
                 'nama_course' => $courseName,
                 'trainer' => $this->session->userdata('id_tutor'),
                 'deskripsi' => $courseDescriptions,
+                'yang_dipelajari' => $yangDipelajari,
                 'id_training' => $trainingId,
                 'added_by' => $this->session->userdata('username')
             ];
@@ -124,17 +128,47 @@ class Course extends CI_Controller {
                 'nama_course' => $courseName,
                 'trainer' => $this->session->userdata('id_tutor'),
                 'deskripsi' => $courseDescriptions,
-                'id_training' => $trainingId,
+                'yang_dipelajari' => $yangDipelajari,
+                'video_preview' => $videoPrev,
                 'location_folder' => $this->etc->replaceAll("\s+\/&@#$%", $seo),
                 'added_by' => $this->session->userdata('username')
             ];
             $where = ['id_course' => $selectedIdCourse];
         }
-        print_r($dataInsert);
+
         if ($mode == 'add') {
             $this->crud->insertData('tb_course', $dataInsert);
         } else {
             $this->crud->updateData('tb_course', $dataUpdate, $where);
+        }
+    }
+
+    function add_video_prev($idCourse) {
+        $locationFolder = $this->course->getCourseById($idCourse)->row()->location_folder;
+
+        $where = ['id_course' => $idCourse];
+
+        if (!is_dir('./assets/course/' . $locationFolder . "/preview-courses/")) {
+            mkdir('./assets/course/' . $locationFolder . "/preview-courses/", 0755);
+        }
+
+        $config['upload_path'] = './assets/course/' . $locationFolder . "/preview-courses/";
+        $config['max_size'] = 0;
+        $config['allowed_types'] = "mp4";
+        $config['file_name'] = $locationFolder . "-video-preview";
+        $config['overwrite'] = true;
+        
+        $uploadPath = './assets/course/' . $locationFolder . "/preview-courses/";
+        $this->etc->createHtaccess($uploadPath);
+
+        //load config to the library
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('course-video-preview')) {
+            $metadata = $this->upload->data();
+            $dataUpdate = ['video_preview' => $metadata['file_name']];
+            $this->crud->updateData('tb_course', $dataUpdate, $where);
+        }else{
+            echo json_encode($this->upload->display_errors());
         }
     }
 

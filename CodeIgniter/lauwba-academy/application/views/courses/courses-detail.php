@@ -10,7 +10,7 @@
             <div class="bg-dark">
                 <div class="px-5">
                     <div class="row pt-5 d-flex justify-content-center">
-                        <div class="col-md-4 col-sm-12 py-5 pl-5 ">
+                        <div class="col-md-4 col-sm-12 pt-5 pb-3 pl-5 ">
                             <h4 class="text-white font-weight-bold"><?php echo $courses->nama_course ?></h4>
                             <!--<p class="lead text-white "><?php echo strip_tags($courses->deskripsi) ?></p>-->
                             <p class="lead text-white">Dibuat oleh: <?php echo strip_tags($courses->nama) ?></p>
@@ -39,21 +39,16 @@
                         </div>
                         <div class="col-md-3 col-sm-12 bg-dark p">
                             <div class="card mt-4 d-none d-md-block" style="position: absolute; left: 15%;right: 15%;">
-                                <div class="content">
-<!--                                    <img class="card-img-top" src="<?php echo base_url('hacked-usa/assets/course/' . $courses->location_folder . '/' . $courses->course_cover) ?>">
-                                    <div class="middle">
-                                        <a href="<?php echo site_url('detail?courses=' . $this->etc->replaceAll("\s+\/&@#$%", $courses->nama_course) . '&hash=' . $courses->id_course) ?>" class="btn btn-primary text-white"><i class="fa fa-eye"></i> Lihat Detail</a>
-                                    </div>-->
+                                <div class="content" oncontextmenu="return false">
                                     <div class="content">
                                         <?php
                                         $idCourse = $this->input->get('hash');
-                                        $idMateri = $this->course->getMateriList($idCourse)->row()->id_materi;
-                                        $video = $this->course->getListVideoByIdMateri($idMateri)->row();
+                                        $video = $this->course->getCoursesById($idCourse)->row();
                                         ?>
                                         <video width="100%">
-                                            <source src="<?php echo base_url() ?>/hacked-usa/<?php echo $video->upload_path . '/' . $video->file_name ?>">
+                                            <source src="<?php echo base_url('hacked-usa/assets/course/' . $video->location_folder . '/preview-courses/' . $video->video_preview) ?>"/>
                                         </video>
-                                        <div class="middle" style="cursor: pointer" onclick="return videoPreview('<?php echo base_url() ?>/hacked-usa/<?php echo $video->upload_path . '/' . $video->file_name ?>')">
+                                        <div class="middle" style="cursor: pointer" onclick="return videoPreview('<?php echo base_url('hacked-usa/assets/course/' . $video->location_folder . '/preview-courses/' . $video->video_preview) ?> ?>')">
                                             <i class="fa fa-4x fa-play-circle-o text-white" ></i>
                                         </div>
                                     </div>
@@ -73,9 +68,12 @@
                             </div>
                             <div class="card mt-2 mb-2 d-block d-md-none ">
                                 <div class="content">
-                                    <img class="card-img-top" src="<?php echo base_url('hacked-usa/assets/course/' . $courses->location_folder . '/' . $courses->course_cover) ?>">
-                                    <div class="middle">
-                                        <a href="<?php echo site_url('detail?courses=' . $this->etc->replaceAll("\s+\/&@#$%", $courses->nama_course) . '&hash=' . $courses->id_course) ?>" class="btn btn-primary text-white"><i class="fa fa-eye"></i> Lihat Detail</a>
+                                    <video width="100%">
+                                        <source src="<?php echo base_url('hacked-usa/assets/course/' . $video->location_folder . '/preview-courses/' . $video->video_preview) ?>"/>
+
+                                    </video>
+                                    <div class="middle" style="cursor: pointer" onclick="return videoPreview('<?php echo base_url('hacked-usa/assets/course/' . $video->location_folder . '/preview-courses/' . $video->video_preview) ?>')">
+                                        <i class="fa fa-4x fa-play-circle-o text-white" ></i>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -163,14 +161,25 @@
     <?php $this->load->view('courses/modal-video-view'); ?>
 </div>
 <script>
+
+
+
     function videoPreview(path) {
         $(".video-preview source").each(function (e) {
             $(this).attr('src', path);
         });
         $('.video-preview').get(0).load();
+        $(".trainer-name").html('<?php echo strip_tags($courses->nama) ?>');
+        $(".trainer-image").attr('src', '<?php echo strip_tags($courses->foto)?>');
 
         $("#video-preview").modal('show');
+        $('.video-preview').get(0).play();
+
     }
+
+    $('#video-preview').on('hide.bs.modal', function () {
+        $('.video-preview').get(0).pause();
+    });
 
 </script>
 

@@ -19,7 +19,9 @@
         <link href="<?php echo base_url('assets/') ?>css/aasana.css" type="text/css" rel="stylesheet" media="all">
         <link href="<?php echo base_url('assets/') ?>css/font-awesome.min.css" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.5.10/plyr.css" />
         <script src="<?php echo base_url('assets/') ?>js/jquery-2.2.3.min.js"></script>
+        <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
     </head>
     <style>
         .dropdown:hover>.dropdown-menu {
@@ -72,6 +74,9 @@
             color: white;
             font-size: 16px;
             padding: 16px 32px;
+        }
+        .modal-backdrop.show {
+            opacity: 0.8;
         }
     </style>
     <body <?php echo (!empty($this->uri->segment(1))) ? "class='bg-dark'" : "" ?>>

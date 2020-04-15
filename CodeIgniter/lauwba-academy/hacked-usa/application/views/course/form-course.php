@@ -5,12 +5,12 @@
             <div class="container">
                 <form class="add-course-form">
                     <div class="form-group">
-                        <label>Nama Kursus</label>
+                        <label>Nama Kursus  <span class="text-danger">*)</span></label>
                         <input type="text" class="form-control" name="course-name" required/>
                     </div>
                     <div class="form-group">
                         <label>Cover Kursus <small class="text-danger font-weight-bold">(Pastikan ukuran foto 300x300 pixel)</small></label>
-                        <input type="file" id="file" class="form-control-file" name="course-cover" accept=".jpg,.png" />
+                        <input type="file" id="file" class="form-control-file" name="course-cover" accept=".jpg,.png" required/>
                         <div class="text-center">
                             <label>Pratinjau akan muncul disini<br>
                             </label>
@@ -20,31 +20,17 @@
                                  data-holder-rendered="true" style="width: 200px; height: 200px;">
                         </div>
                     </div> 
+                    
                     <div class="form-group pt-3">
-                        <label>Deskripsi Kursus</label>
-                        <textarea class="summernote form-control shadow-none" name="course-descriptions" style="border: 0px;"></textarea>
+                        <label>Deskripsi Kursus <span class="text-danger">*)</span></label>
+                        <textarea class="summernote form-control shadow-none" name="course-descriptions" style="border: 0px;" required></textarea>
                     </div>
-                    <!--                    <div class="form-group">
-                                            <label>Trainer Name</label>
-                                            <div class="text-right mb-4">
-                                                <span class="alert alert-primary" id="selected-id"></span>
-                                            </div>
-                                            <div style="overflow-y: auto; height: 250px" class="p-3">
-                                                <ul class="nav nav-pills mb-3 mx-auto justify-content-center" id="pills-tab" role="tablist">
-                    <?php foreach ($tutor as $t) { ?>
-                                                                <li class="nav-item">
-                                                                    <a onclick='return setTrainerId("<?php echo $t->id_tutor ?>", "<?php echo $t->nama ?>")' class="nav-link card shadow-none m-3  bg-light" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
-                                                                        <div class="card-body mx-auto text-center">
-                                                                            <img class="avatar-img img-fluid rounded-circle mb-2" style="height: 100px; width: 100px" src="https://www.lauwba.com/foto_banner/<?php echo $t->gambar ?>" />
-                                                                            <h5><?php echo $t->nama ?></h5>
-                                                                        </div>
-                                                                    </a>
-                                                                </li>
-                    <?php } ?>
-                                                </ul>
-                                            </div>
-                                            <input type="text" readonly class="d-none d-md-none" name="trainer-id" required=""/>
-                                        </div>-->
+
+                    <div class="form-group pt-3">
+                        <label>Yang Akan Dipelajari <span class="text-danger">*)</span><br>
+                        <small class="text-danger">Silahkan gunakan angka sebagai nomor urut (numbering)</small></label>
+                        <textarea class="summernote form-control shadow-none" name="yang-dipelajari" style="border: 0px;" required></textarea>
+                    </div>
                     <div class="form-group">
                         <label>Kelas Training</label>
                         <div class="text-right mb-4 d-none d-md-none selected-training-container">
@@ -122,7 +108,7 @@
                 },
                 complete: function (jqXHR, status) {
                     hidePopup();
-//                    location.assign(redirectTo);
+                    location.assign(redirectTo);
                 }
 
             });
